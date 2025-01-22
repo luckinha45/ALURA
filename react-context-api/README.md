@@ -1,3 +1,5 @@
+A ideia do projeto é pegar esse projeto "Meteora" pré-pronto e mudar a forma que esse app usa States. Ao inves de passar tudo como prop, mudar para usar o Context API!
+
 ![Meteora](thumbnail.png)
 
 # Meteora - E-commerce de Moda

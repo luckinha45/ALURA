@@ -1,6 +1,6 @@
 import React from "react";
 
-const BotaoTogglerMenu = () => {
+function BotaoTogglerMenu() {
   return (
     <button
       className="navbar-toggler"

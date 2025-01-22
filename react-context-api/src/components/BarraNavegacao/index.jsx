@@ -7,7 +7,7 @@ import Botao from "@/components/Botao";
 
 import { useLocation } from "react-router-dom";
 
-const BarraNavegacao = ({ quantidadeProdutos }) => {
+function BarraNavegacao({ quantidadeProdutos }) {
   const location = useLocation();
   const ehAPaginaCarrinho = location.pathname === "/carrinho";
   return (

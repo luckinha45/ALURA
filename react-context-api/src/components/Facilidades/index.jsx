@@ -3,7 +3,7 @@ import Titulo from "@/components/Titulo";
 import Facilidade from "./Facilidade";
 import facilidades from "@/mocks/facilidades.json";
 
-const Facilidades = () => {
+function Facilidades() {
   return (
     <section
       className="pb-4 bg-black text-bg-dark"

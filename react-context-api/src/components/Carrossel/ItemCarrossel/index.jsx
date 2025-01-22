@@ -1,7 +1,7 @@
 import React from "react";
 import Titulo from "@/components/Titulo";
 
-const ItemCarrossel = ({ src, alt, itemCarrossel }) => {
+function ItemCarrossel({ src, alt, itemCarrossel }) {
   return (
     <div
       className={`image-height carousel-item ${itemCarrossel ? "" : "active"}`}

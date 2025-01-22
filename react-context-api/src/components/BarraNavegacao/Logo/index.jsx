@@ -1,7 +1,7 @@
 import React from "react";
 import logoMeteora from "/assets/images/logo-meteora.png";
 
-const Logo = () => {
+function Logo() {
   return (
     <a className="navbar-brand" href="#">
       <h1 className="m-0">

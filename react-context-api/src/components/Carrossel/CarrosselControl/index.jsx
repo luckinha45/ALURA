@@ -1,6 +1,6 @@
 import React from "react";
 
-const CarrosselControl = ({ variante }) => {
+function CarrosselControl({ variante }) {
   return (
     <button
       className={`carousel-control-${variante}`}

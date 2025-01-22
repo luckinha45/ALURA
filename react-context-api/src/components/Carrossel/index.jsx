@@ -4,7 +4,7 @@ import sliders from "@/mocks/carrossel.json";
 import IndicadoresCarrossel from "./IndicadoresCarrossel";
 import CarrosselControl from "./CarrosselControl";
 
-const Carrossel = () => {
+function Carrossel() {
   return (
     <section role="Carrossel" aria-label="Carrossel">
       <div id="carrossel" className="carousel slide" data-bs-ride="carousel">

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import BarraNavegacao from "@/components/BarraNavegacao";
 
-const PaginaErro = () => {
+function PaginaErro() {
   return (
     <>
       <BarraNavegacao />

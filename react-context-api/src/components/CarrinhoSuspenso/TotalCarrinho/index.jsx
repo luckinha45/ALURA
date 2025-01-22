@@ -3,7 +3,7 @@ import ValorFormatado from "@/components/ValorFormatado";
 import Botao from "@/components/Botao";
 import { useNavigate } from "react-router-dom";
 
-const TotalCarrinho = ({ valorTotalCarrinho }) => {
+function TotalCarrinho({ valorTotalCarrinho }) {
   const navigate = useNavigate();
 
   return (

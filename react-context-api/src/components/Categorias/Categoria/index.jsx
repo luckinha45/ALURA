@@ -1,6 +1,6 @@
 import React from "react";
 
-const Categoria = ({ alt, src, descricao }) => {
+function Categoria({ alt, src, descricao }) {
   return (
     <div className="col-6 col-md-4 col-xxl-2">
       <div className="card rounded-0 border-0">

@@ -1,4 +1,4 @@
-export const formatadorMoeda = (amount) => {
+export function formatadorMoeda(amount) {
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",

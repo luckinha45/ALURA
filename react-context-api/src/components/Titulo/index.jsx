@@ -1,6 +1,6 @@
 import React from "react";
 
-const Titulo = ({ children, classes, element, ...rest }) => {
+function Titulo({ children, classes, element, ...rest }) {
   const Element = element || "h2";
   return (
     <Element

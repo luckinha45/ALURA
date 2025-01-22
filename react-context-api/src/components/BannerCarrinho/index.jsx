@@ -1,7 +1,7 @@
 import React from "react";
 import bannerCarrinho from "/assets/images/banner-carrinho.png";
 
-const BannerCarrinho = () => {
+function BannerCarrinho() {
   return (
     <img
       className="custom-img"

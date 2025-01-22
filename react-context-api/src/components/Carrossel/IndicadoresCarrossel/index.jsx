@@ -1,6 +1,6 @@
 import React from "react";
 
-const IndicadoresCarrossel = () => {
+function IndicadoresCarrossel() {
   return (
     <div className="carousel-indicators">
       <button

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Rodape = () => {
+function Rodape() {
   return (
     <footer className="text-center bg-black text-bg-dark">
       <p className="card-text py-3">

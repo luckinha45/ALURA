@@ -3,7 +3,7 @@ import Titulo from "@/components/Titulo";
 import ValorFormatado from "@/components/ValorFormatado";
 import { formatadorMoeda } from "@/utils/formatadorMoeda";
 
-const ResumoCompra = ({ valorTotalCarrinho, quantidadeProdutos }) => {
+function ResumoCompra({ valorTotalCarrinho, quantidadeProdutos }) {
   return (
     <div className="bg-black p-4">
       <Titulo element="h5" className="text-center fw-bold">

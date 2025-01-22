@@ -1,6 +1,6 @@
 import React from "react";
 
-const Facilidade = ({ src, alt, titulo, descricao }) => {
+function Facilidade({ src, alt, titulo, descricao }) {
   return (
     <div className="divs-facilidades d-flex">
       <img className="verde-limao bi bi-x-diamond fs-1" src={src} alt={alt} />
