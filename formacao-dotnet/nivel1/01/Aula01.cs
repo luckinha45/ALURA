@@ -3,20 +3,42 @@
     public static void Executar()
     {
         // generos
-        var rock = new Genero("Rock");
-        var alternativo = new Genero("Alternativo");
-        var progressivo = new Genero("Progressivo");
+        Genero rock = new Genero("Rock");
+        Genero alternativo = new Genero("Alternativo");
+        Genero progressivo = new Genero("Progressivo");
+        Genero symphoRock = new Genero("Rock Simfonico");
 
-        var originOfSymmetry = new Album("Origin of Symmetry", "Muse");
+        Artista muse = new Artista("Muse", new List<Album>());
+        Artista qotsa = new Artista("Queens of the Stone Age", new List<Album>());
 
-        var newBorn = new Musica("New Born", "Muse", Globals.DuracaoToSecs(6, 0), new Genero[] { rock, alternativo }, true);
-        var citizenErased = new Musica("Citizen Erased", "Muse", Globals.DuracaoToSecs(7, 21), new Genero[] { rock, progressivo }, false);
-        var spaceDementia = new Musica("Space Dementia", "Muse", Globals.DuracaoToSecs(6, 22), new Genero[] { rock, progressivo }, true);
+        // musicas
+        Musica newBorn = new Musica("New Born", muse, Globals.DuracaoToSecs(6, 0), [rock, alternativo], true);
+        Musica citErazed = new Musica("Citizen Erased", muse, Globals.DuracaoToSecs(7, 11), [rock, progressivo], false);
+        Musica spaceDementia = new Musica("Space Dementia", muse, Globals.DuracaoToSecs(6, 22), [rock, progressivo], true);
 
-        spaceDementia.ExbirFichaTecnica();
-        // originOfSymmetry.AddMusica(newBorn);
-        // originOfSymmetry.AddMusica(citizenErased);
-        // originOfSymmetry.AddMusica(spaceDementia);
-        // originOfSymmetry.PrintMusicas();
+        Musica explorers = new Musica("Explorers", muse, Globals.DuracaoToSecs(5, 48), [progressivo, symphoRock], true);
+        Musica saveMe = new Musica("Save Me", muse, Globals.DuracaoToSecs(5, 9), [progressivo, alternativo], false);
+
+        newBorn.ExbirFichaTecnica();
+        Console.WriteLine("");
+
+        // albuns
+        Album originOfSymmetry = new Album("Origin of Symmetry", muse);
+        originOfSymmetry.AddMusica(newBorn);
+        originOfSymmetry.AddMusica(citErazed);
+        originOfSymmetry.AddMusica(spaceDementia);
+
+        originOfSymmetry.PrintMusicas();
+        Console.WriteLine("");
+
+        Album secondLaw = new Album("2nd Law", muse);
+        secondLaw.AddMusica(explorers);
+        secondLaw.AddMusica(saveMe);
+
+        // artista
+        muse.AddAlbum(originOfSymmetry);
+        muse.AddAlbum(secondLaw);
+        muse.ListaAlbuns();
+        Console.WriteLine("");
     }
 }
