@@ -1,10 +1,10 @@
 class Album
 {
-    string nome;
-    string artista;
-    int DuracaoTotal => musicas.Sum(m => m.Duracao);
-    string DuracaoTotalFormatada => Globals.FormataDuracao(DuracaoTotal);
-    List<Musica> musicas;
+    private string nome;
+    private string artista;
+    private int DuracaoTotal => musicas.Sum(m => m.Duracao);
+    private string DuracaoTotalFormatada => Globals.FormataDuracao(DuracaoTotal);
+    private List<Musica> musicas;
 
     public Album(string nome = "", string artista = "")
     {
