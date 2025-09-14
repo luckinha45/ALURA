@@ -1,0 +1,2 @@
+# REPOSITÓRIO ALURA
+Nesse reposiótio, salvo todos os projetos que fiz durante os cursos realizados da [Alura](https://alura.com.br/). A ideia desse repositório é documentar meu progresso, catalogando-o por cursos.
