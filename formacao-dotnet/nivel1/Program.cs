@@ -1,2 +1,2 @@
-﻿// executa o programa da parte 01
-Aula01.Executar();
+﻿// executa o programa da parte 02
+Aula03.Exec.Executar();

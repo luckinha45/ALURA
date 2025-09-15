@@ -1,39 +1,42 @@
-class Artista
+namespace Aula01NS
 {
-    public readonly string nome;
-    List<Album> albuns;
-
-    public Artista(string nome = "", List<Album>? albuns = null)
+    class Artista
     {
-        this.nome = nome;
-        this.albuns = albuns ?? new List<Album>();
-    }
+        public readonly string nome;
+        List<Album> albuns;
 
-    public void AddAlbum(Album album)
-    {
-        if (album.artista == this)
+        public Artista(string nome = "", List<Album>? albuns = null)
         {
-            this.albuns.Add(album);
+            this.nome = nome;
+            this.albuns = albuns ?? new List<Album>();
         }
-        else
+
+        public void AddAlbum(Album album)
         {
-            throw new Exception($"O álbum ({album.titulo}) não pôde ser adicionado ao artista ({this.nome}). Artistas diferentes.");
+            if (album.artista == this)
+            {
+                this.albuns.Add(album);
+            }
+            else
+            {
+                throw new Exception($"O álbum ({album.titulo}) não pôde ser adicionado ao artista ({this.nome}). Artistas diferentes.");
+            }
         }
-    }
 
-    public void ListaAlbuns()
-    {
-        Console.WriteLine($"Albuns de {this.nome}:");
-        foreach (var a in this.albuns)
+        public void ListaAlbuns()
         {
-            Console.WriteLine($"{a.titulo} - Duração: {a.DuracaoTotalFormatada}");
+            Console.WriteLine($"Albuns de {this.nome}:");
+            foreach (var a in this.albuns)
+            {
+                Console.WriteLine($"{a.titulo} - Duração: {a.DuracaoTotalFormatada}");
+            }
         }
-    }
 
 
-    // overriden methods
-    public override string ToString()
-    {
-        return this.nome;
+        // overriden methods
+        public override string ToString()
+        {
+            return this.nome;
+        }
     }
 }

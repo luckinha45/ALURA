@@ -1,9 +1,12 @@
-class Genero
+namespace Aula01NS
 {
-    public string Nome { get; set; }
-
-    public Genero(string nome)
+    class Genero
     {
-        this.Nome = nome;
+        public string Nome { get; set; }
+
+        public Genero(string nome)
+        {
+            this.Nome = nome;
+        }
     }
 }
