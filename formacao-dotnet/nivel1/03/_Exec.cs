@@ -9,13 +9,13 @@ class Exec
     static public void Executar()
     {
         Models.Banda tyr = new Models.Banda("Tyr");
-        tyr.AdicionarNota(10);
-        tyr.AdicionarNota(9);
-        tyr.AdicionarNota(6);
+        tyr.AdicionarNota(new Avaliacao(10));
+        tyr.AdicionarNota(new Avaliacao(9));
+        tyr.AdicionarNota(new Avaliacao(6));
         Models.Banda sabaton = new Models.Banda("Sabaton");
-        sabaton.AdicionarNota(8);
-        sabaton.AdicionarNota(7);
-        sabaton.AdicionarNota(9);
+        sabaton.AdicionarNota(new Avaliacao(8));
+        sabaton.AdicionarNota(new Avaliacao(7));
+        sabaton.AdicionarNota(new Avaliacao(9));
 
         bandasRegistradas.Add(tyr.Nome, tyr);
         bandasRegistradas.Add(sabaton.Nome, sabaton);
@@ -27,12 +27,15 @@ class Exec
     {
         Console.WriteLine(@"
 
-░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
-██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
-╚█████╗░██║░░╚═╝██████╔╝█████╗░░█████╗░░██╔██╗██║  ╚█████╗░██║░░██║██║░░░██║██╔██╗██║██║░░██║
-░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
-██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
-╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░
+ _______  _______ _________ _______  _                 ______  _________ _______ 
+(       )(  ____ \\__   __/(  ___  )( \      |\     /|(  __  \ \__   __/(  ___  )
+| () () || (    \/   ) (   | (   ) || (      | )   ( || (  \  )   ) (   | (   ) |
+| || || || (__       | |   | (___) || |      | |   | || |   ) |   | |   | |   | |
+| |(_)| ||  __)      | |   |  ___  || |      | |   | || |   | |   | |   | |   | |
+| |   | || (         | |   | (   ) || |      | |   | || |   ) |   | |   | |   | |
+| )   ( || (____/\   | |   | )   ( || (____/\| (___) || (__/  )___) (___| (___) |
+|/     \|(_______/   )_(   |/     \|(_______/(_______)(______/ \_______/(_______)
+                                                                                 
 ");
         Console.WriteLine("Boas vindas ao Screen Sound 2.0!");
     }
@@ -150,25 +153,33 @@ class Exec
         ExibirTituloDaOpcao("Avaliar banda");
         Console.Write("Digite o nome da banda que deseja avaliar: ");
         string nomeDaBanda = Console.ReadLine()!;
+
         if (bandasRegistradas.ContainsKey(nomeDaBanda))
         {
-            Console.Write($"Qual a nota que a banda {nomeDaBanda} merece: ");
-            int nota = int.Parse(Console.ReadLine()!);
-            bandasRegistradas[nomeDaBanda].AdicionarNota(nota);
-            Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
-            Thread.Sleep(2000);
-            Console.Clear();
-            ExibirOpcoesDoMenu();
+            Console.Write($"Qual nota a banda {nomeDaBanda} merece: ");
+
+            Avaliacao av;
+            try
+            {
+                av = Avaliacao.Parse(Console.ReadLine()!);
+                bandasRegistradas[nomeDaBanda].AdicionarNota(av);
+                Console.WriteLine($"\nA nota {av.Nota} foi registrada com sucesso para a banda {nomeDaBanda}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro. {ex.Message}");
+            }
         }
         else
         {
             Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
-            Console.WriteLine("Digite uma tecla para voltar ao menu principal");
-            Console.ReadKey();
-            Console.Clear();
-            ExibirOpcoesDoMenu();
         }
 
+
+        Console.WriteLine("Digite uma tecla para voltar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirOpcoesDoMenu();
     }
 
     static void ExibirDetalhes()

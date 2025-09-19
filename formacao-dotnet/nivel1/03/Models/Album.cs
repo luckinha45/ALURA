@@ -1,6 +1,6 @@
 ﻿namespace Aula03.Models;
 
-class Album
+internal class Album
 {
     private List<Musica> musicas = new List<Musica>();
 
