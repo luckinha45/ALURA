@@ -1,3 +1,6 @@
+using System.Text.Json;
+using Aula01NS;
+
 namespace Aula04;
 
 class _Exec
@@ -9,8 +12,18 @@ class _Exec
             try
             {
                 var response = client.GetStringAsync("https://guilhermeonrails.github.io/api-csharp-songs/songs.json");
+                response.Wait();
                 string content = response.Result;
-                Console.WriteLine(content);
+
+                List<Models.Musica> musicas = JsonSerializer.Deserialize<List<Models.Musica>>(content)!;
+
+                if (musicas.Count == 0)
+                {
+                    Console.WriteLine("Nenhuma música encontrada.");
+                    return;
+                }
+
+                musicas[0].ExibirDetalhes();
             }
             catch (Exception ex)
             {
