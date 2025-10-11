@@ -16,6 +16,8 @@ internal class Musica
     [JsonPropertyName("genre")]
     public string? Genero { get; init; }
 
+    public List<string> ListGenero => this.Genero!.Split(',').Select(g => g.Trim().ToUpper()).ToList();
+
     public string DuracaoExtenso => TimeSpan.FromMilliseconds(this.Duracao).ToString(@"mm\:ss\.fff");
 
     public void ExibirDetalhes()

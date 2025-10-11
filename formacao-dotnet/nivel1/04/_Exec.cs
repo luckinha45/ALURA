@@ -23,13 +23,14 @@ class _Exec
                     return;
                 }
 
-                musicas[0].ExibirDetalhes();
+                // Filters.LinqFilter.FiltarTodosGeneros(musicas);
+                // Filters.LinqArtista.SelectSorted(musicas, SortBy.desc);
+                Filters.LinqArtista.SelectByGenero(musicas, "Dance/Electronic");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Erro na requisição: {ex.Message}");
             }
-
         }        
     }
 }
