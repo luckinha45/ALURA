@@ -11,14 +11,17 @@ internal class ExibirDetalhes : Menu
         if (bandas.ContainsKey(nomeDaBanda))
         {
             Models.Banda banda = bandas[nomeDaBanda];
-            Console.WriteLine($"\nA média da banda {nomeDaBanda} é {banda.Media}.");
-            /**
-            * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
-            */
+            Console.WriteLine($"\nA média da banda {nomeDaBanda} é {banda.Media}. Média das discografias:");
+            foreach (var album in banda.Albuns.Values)
+            {
+                Console.WriteLine($"  - {album.Nome}: {album.Media}.");
+            }
         }
         else
         {
             Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
         }
+
+        Console.WriteLine($"");
     }
 }

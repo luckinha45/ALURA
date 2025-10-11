@@ -48,7 +48,8 @@ class Exec
             { "2", new Menus.RegistrarAlbum() },
             { "3", new Menus.MostrarBandasRegistradas() },
             { "4", new Menus.AvaliarBanda() },
-            { "5", new Menus.ExibirDetalhes() }
+            { "5", new Menus.AvaliarAlbum() },
+            { "6", new Menus.ExibirDetalhes() }
         };
 
         while (true)
@@ -58,7 +59,8 @@ class Exec
             Console.WriteLine("Digite 2 para registrar o álbum de uma banda");
             Console.WriteLine("Digite 3 para mostrar todas as bandas");
             Console.WriteLine("Digite 4 para avaliar uma banda");
-            Console.WriteLine("Digite 5 para exibir os detalhes de uma banda");
+            Console.WriteLine("Digite 5 para avaliar um álbum");
+            Console.WriteLine("Digite 6 para exibir os detalhes de uma banda");
             Console.WriteLine("Digite 0 para sair");
 
             Console.Write("\nDigite a sua opção: ");
