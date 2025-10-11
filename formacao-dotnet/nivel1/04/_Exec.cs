@@ -23,9 +23,21 @@ class _Exec
                     return;
                 }
 
-                // Filters.LinqFilter.FiltarTodosGeneros(musicas);
-                // Filters.LinqArtista.SelectSorted(musicas, SortBy.desc);
-                Filters.LinqArtista.SelectByGenero(musicas, "Dance/Electronic");
+                Models.MusciasPreferidas musicasLucas = new("Lucas");
+                musicasLucas.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "Supermassive Black Hole"));
+                musicasLucas.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "You Rock My World"));
+                musicasLucas.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "Bad Romance"));
+                musicasLucas.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "Halo"));
+                musicasLucas.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "Take Me Out"));
+                musicasLucas.ExibMusicasFavs();
+
+                Models.MusciasPreferidas musicasLais = new("Lais");
+                musicasLais.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "Boy With Luv (feat. Halsey)"));
+                musicasLais.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "Single Ladies (Put a Ring on It)"));
+                musicasLais.AddMusciaFav(Filters.LinqMusica.SelectByNome(musicas, "Diamonds"));
+
+                musicasLucas.ExportToJson();
+                musicasLais.ExportToJson();
             }
             catch (Exception ex)
             {

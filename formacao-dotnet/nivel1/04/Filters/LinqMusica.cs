@@ -1,8 +1,10 @@
+using Aula01NS;
+
 namespace Aula04.Filters;
 
 internal class LinqMusica
 {
-    public static void FiltarMusicasPorArtistas(List<Models.Musica> musicas, string artista)
+    public static void SelectByArtistas(List<Models.Musica> musicas, string artista)
     {
         var artistas = musicas
             .Where(m => m.Artista == artista)
@@ -14,5 +16,10 @@ internal class LinqMusica
             a.ExibirDetalhes();
             Console.WriteLine("---------------------------");
         }
+    }
+
+    public static Models.Musica? SelectByNome(List<Models.Musica> musicas, string nome)
+    {
+        return musicas.Find(m => m.Nome == nome);
     }
 }
