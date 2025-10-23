@@ -6,10 +6,10 @@ internal class FileHandler
 {
     static public int BUFFER_SIZE = 1024;
 
-    static public void WriteBuffer(byte[] buffer)
+    static public void WriteBuffer(byte[] buffer, int totalBytes)
     {
         var utf8 = new UTF8Encoding();
-        var txt = utf8.GetString(buffer);
+        var txt = utf8.GetString(buffer, 0, totalBytes);
         Console.Write(txt);
     }
 }
