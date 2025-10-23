@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Microsoft.VisualBasic;
 
 namespace Aula04.Models;
 
@@ -16,6 +17,26 @@ internal class Musica
     [JsonPropertyName("genre")]
     public string? Genero { get; init; }
 
+    [JsonPropertyName("key")]
+    public int Tom { get; init; }
+
+    public string TomExt => this.Tom switch
+    {
+        0 => "C",
+        1 => "C#",
+        2 => "D",
+        3 => "D#",
+        4 => "E",
+        5 => "F",
+        6 => "F#",
+        7 => "G",
+        8 => "G#",
+        9 => "A",
+        10 => "A#",
+        11 => "B",
+        _ => "DESCONHECIDO"
+    };
+
     public List<string> ListGenero => this.Genero!.Split(',').Select(g => g.Trim().ToUpper()).ToList();
 
     public string DuracaoExtenso => TimeSpan.FromMilliseconds(this.Duracao).ToString(@"mm\:ss\.fff");
@@ -26,6 +47,7 @@ internal class Musica
         Console.WriteLine($"Artista: {this.Artista}");
         Console.WriteLine($"Duração: {this.DuracaoExtenso}");
         Console.WriteLine($"Gênero: {this.Genero}");
+        Console.WriteLine($"Tom: {this.TomExt}");
     }
 
 }

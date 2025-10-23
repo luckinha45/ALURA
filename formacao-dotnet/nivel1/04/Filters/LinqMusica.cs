@@ -22,4 +22,15 @@ internal class LinqMusica
     {
         return musicas.Find(m => m.Nome == nome);
     }
+
+    public static void SelectByTom(List<Models.Musica> musicas, string tom)
+    {
+        var filtradas = musicas.FindAll(m => m.TomExt == tom);
+
+        foreach (var musica in filtradas)
+        {
+            musica.ExibirDetalhes();
+            Console.WriteLine("---------------------------");
+        }
+    }
 }
