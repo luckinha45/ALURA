@@ -9,9 +9,9 @@ class _Exec
         // Altera o diretorio inicial
         Directory.SetCurrentDirectory(@".\09\");
 
+        FileHandler.BinWrite();
+        FileHandler.BinRead();
 
-        string filePath = @".\contasExportadas.csv";
-        FileHandler.NewFile(filePath);
 
         // string addrArquivo = ".\\contas.txt";
 

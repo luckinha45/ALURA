@@ -22,4 +22,50 @@ internal class FileHandler
             sw.Write(contaStr);
         }
     }
+
+    static public void TestWriting()
+    {
+        string filePath = @".\teste.txt";
+
+        using (FileStream fs = new(filePath, FileMode.Create))
+        using (StreamWriter sw = new(fs))
+        {
+            for (int i = 0; i < 1000000; i++)
+            {
+                sw.WriteLine($"asdasd {i}");
+                sw.Flush();
+            }
+        }
+    }
+
+    static public void BinWrite()
+    {
+
+        string filePath = @".\teste.txt";
+
+        using (FileStream fs = new(filePath, FileMode.Create))
+        using (BinaryWriter bw = new(fs))
+        {
+            bw.Write(456);
+            bw.Write(123123);
+            bw.Write(123.43);
+            bw.Write("Gustavo Lima");
+        }
+    }
+
+    static public void BinRead()
+    {
+        string filePath = @".\teste.txt";
+
+        using (FileStream fs = new(filePath, FileMode.Open))
+        using (BinaryReader br = new(fs))
+        {
+            var ag = br.ReadInt32();
+            var numero = br.ReadInt32();
+            var saldo = br.ReadDouble();
+            var nome = br.ReadString();
+
+            Console.WriteLine($"{ag} {numero} {saldo} {nome}");
+        }
+    }
 }
