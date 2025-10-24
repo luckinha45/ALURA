@@ -1,20 +1,32 @@
+using Aula09.Models;
+
 namespace Aula09;
 
 class _Exec
 {
     public static void Executar()
     {
-        string addrArquivo = ".\\09\\contas.txt";
+        // Altera o diretorio inicial
+        Directory.SetCurrentDirectory(@".\09\");
 
-        using (var fs = new FileStream(addrArquivo, FileMode.Open))
-        {
-            var sr = new StreamReader(fs);
 
-            while (!sr.EndOfStream)
-            {
-                var linha = sr.ReadLine();
-                Console.WriteLine(linha);
-            }
-        }
+        string filePath = @".\contasExportadas.csv";
+        FileHandler.NewFile(filePath);
+
+        // string addrArquivo = ".\\contas.txt";
+
+        // using (var fs = new FileStream(addrArquivo, FileMode.Open))
+        // {
+        //     var sr = new StreamReader(fs);
+
+        //     ContaCorrente? cc = null;
+
+        //     while (!sr.EndOfStream)
+        //     {
+        //         var linha = sr.ReadLine();
+        //         cc = ContaCorrente.StringToCC(linha ?? "");
+        //         cc.ExibeDetalhes();
+        //     }
+        // }
     }
 }

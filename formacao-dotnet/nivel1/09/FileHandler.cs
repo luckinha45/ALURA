@@ -12,4 +12,14 @@ internal class FileHandler
         var txt = utf8.GetString(buffer, 0, totalBytes);
         Console.Write(txt);
     }
+
+    static public void NewFile(string filePath)
+    {
+        using (FileStream fs = new(filePath, FileMode.Create))
+        using (StreamWriter sw = new(fs))
+        {
+            string contaStr = "456, 7895, 4575.23, Gustávo Jorjï";
+            sw.Write(contaStr);
+        }
+    }
 }
