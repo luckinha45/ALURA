@@ -68,4 +68,18 @@ internal class FileHandler
             Console.WriteLine($"{ag} {numero} {saldo} {nome}");
         }
     }
+
+    static public void InputStream()
+    {
+        using (var si = Console.OpenStandardInput())
+        using(var fs = new FileStream(@".\saida.txt", FileMode.Create))
+        {
+            var buffer = new byte[BUFFER_SIZE];
+            var readBytes = si.Read(buffer, 0, BUFFER_SIZE);
+
+            Console.WriteLine($"Bytes lidos: {readBytes}");
+
+            fs.Write(buffer, 0, readBytes);
+        } 
+    }
 }
