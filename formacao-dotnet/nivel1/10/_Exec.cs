@@ -4,6 +4,6 @@ internal class _Exec
 {
     public static void Executar()
     {
-        new Pt01.Parte01();
+        new Pt02.Start();
     }
 }
